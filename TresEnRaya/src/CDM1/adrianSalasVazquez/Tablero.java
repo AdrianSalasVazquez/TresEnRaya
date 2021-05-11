@@ -34,5 +34,25 @@ public class Tablero {
 		}
 	}
 	
+	public void introducirFicha(String ficha, int fila, int columna) {
+		if (comprobarCasilla(fila,columna)) {
+			cuadricula[fila][columna] = "| " + ficha + " |";
+		}
+	}
+	
+	public boolean comprobarCasilla(int fila, int columna) {
+		boolean libre = false;
+		if (cuadricula[fila][columna].equals("| _ |")) {
+			libre = true;
+		}
+		return libre;
+	}
+	
+	public boolean comprobarPartidaAcabada() {
+		
+		
+		
+		return false;
+	}
 	
 }
