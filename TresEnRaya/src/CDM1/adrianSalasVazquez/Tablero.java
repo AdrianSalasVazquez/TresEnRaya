@@ -48,11 +48,77 @@ public class Tablero {
 		return libre;
 	}
 	
-	public boolean comprobarPartidaAcabada() {
+	public String comprobarPartidaAcabada() {
+		int cont = 0;
+		String resul = "N";
 		
 		
+		//Comprobar tablero lleno
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas; j++){
+				if (cuadricula[i][j].equals("| X |") || cuadricula[i][j].equals("| O |")) {
+					cont++;
+				}
+			}
+		}
+		if (cont == 9) {
+			 resul = "T";
+		}
 		
-		return false;
+		//Comprobar filas
+		for (int i = 0; i < filas; i++) {
+			int contX = 0, contO = 0;
+			for (int j = 0; j < columnas; j++){
+				if (cuadricula[i][j].equals("| X |")) {
+					contX++;
+				}
+				if (cuadricula[i][j].equals("| O |")) {
+					contO++;
+				}
+			}
+			if (contO == 3 || contX == 3) {
+				 resul = cuadricula[i][0].substring(2, 3);
+			}
+		}
+		
+		
+		//Comprobar Columnas
+		for (int i = 0; i < filas; i++) {
+			int contX = 0, contO = 0;
+			for (int j = 0; j < columnas; j++){
+				if (cuadricula[j][i].equals("| X |")) {
+					contX++;
+				}
+				if (cuadricula[j][i].equals("| O |")) {
+					contO++;
+				}
+			}
+			if (contO == 3 || contX == 3) {
+				 resul = cuadricula[i][0].substring(2, 3);
+			}
+		}
+		
+		
+		//Comprobar diagonales
+		String prueba = "";
+		for (int i = 0; i < filas; i++) {
+			prueba += cuadricula[i][i].substring(2, 3);
+		}
+		if (prueba.equals("XXX") || prueba.equals("OOO")) {
+			resul = prueba.substring(0, 1);
+		}
+		prueba = "";
+		int restar = filas;
+		for (int i = 0; i < filas; i++) {
+			restar--;
+			prueba += cuadricula[i][restar].substring(2, 3);
+		}
+		if (prueba.equals("XXX") || prueba.equals("OOO")) {
+			resul = prueba.substring(0, 1);
+		}
+		
+		
+		return resul;
 	}
 	
 }

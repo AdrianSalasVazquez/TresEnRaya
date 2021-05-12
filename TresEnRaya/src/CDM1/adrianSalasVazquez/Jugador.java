@@ -91,7 +91,8 @@ public class Jugador {
 				break;
 			}
 			default : {
-				System.out.println("Introduce correctamente las coordenadas (ej: A1, B3, C1...)");
+				System.out.println();
+				System.out.println("Coordenadas erroneas. \nPor favor introduce correctamente las coordenadas (ej: A1, B3, C1...)");
 				correcto = false;
 				break;
 			}

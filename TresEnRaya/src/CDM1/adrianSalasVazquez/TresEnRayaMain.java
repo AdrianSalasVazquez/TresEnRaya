@@ -91,7 +91,7 @@ public class TresEnRayaMain {
 			System.out.println();
 			tablero.mostrarTablero();
 			
-			if (!tablero.comprobarPartidaAcabada()) {
+			if (tablero.comprobarPartidaAcabada() == "N") {
 				
 				do {
 					System.out.println();
@@ -104,8 +104,40 @@ public class TresEnRayaMain {
 				
 			}
 			
-		}while (!tablero.comprobarPartidaAcabada());
-
+		}while (tablero.comprobarPartidaAcabada() == "N");
+		
+		
+		
+		String fin = tablero.comprobarPartidaAcabada();
+		
+		switch (fin) {
+			case "X" : {
+				if (jugador1.getFicha().equals("X")) {
+					System.out.println("Ha ganado " + jugador1.getNombre());
+				}
+				else {
+					System.out.println("Ha ganado " + jugador2.getNombre());
+				}
+				break;
+			}
+			case "O" : {
+				if (jugador1.getFicha().equals("O")) {
+					System.out.println("Ha ganado " + jugador1.getNombre());
+				}
+				else {
+					System.out.println("Ha ganado " + jugador2.getNombre());
+				}
+				break;
+			}
+			case "T" : {
+				System.out.println("La partida a acabado se ha quedado en tablas");
+				break;
+			}
+		}
+		
+		
+		
+		
 	}
 
 }
