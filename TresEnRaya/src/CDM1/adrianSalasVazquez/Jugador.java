@@ -98,7 +98,11 @@ public class Jugador {
 			}
 		}
 		if (correcto) {
-			tablero.introducirFicha(getFicha(), fila, columna);
+			correcto = tablero.introducirFicha(getFicha(), fila, columna);
+			if (!correcto) {
+				System.out.println();
+				System.out.println("Casilla usada, por favor use otra");
+			}
 		}
 		return correcto;
 	}
