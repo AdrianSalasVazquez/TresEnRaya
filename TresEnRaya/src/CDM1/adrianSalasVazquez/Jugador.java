@@ -45,57 +45,66 @@ public class Jugador {
 		boolean correcto = true;
 		
 		switch (coords) {
-			case "A1" : {
+			case "1A" :
+			case "A1" : 
 				fila = 0;
 				columna = 0;
 				break;
-			}
-			case "A2" : {
+
+			case "2A" :
+			case "A2" : 
 				fila = 1;
 				columna = 0;
 				break;
-			}
-			case "A3" : {
+			
+			case "3A" :
+			case "A3" : 
 				fila = 2;
 				columna = 0;
 				break;
-			}
-			case "B1" : {
+			
+			case "1B" :
+			case "B1" : 
 				fila = 0;
 				columna = 1;
 				break;
-			}
-			case "B2" : {
+			
+			case "2B" :
+			case "B2" : 
 				fila = 1;
 				columna = 1;
 				break;
-			}
-			case "B3" : {
+			
+			case "3B" :
+			case "B3" : 
 				fila = 2;
 				columna = 1;
 				break;
-			}
-			case "C1" : {
+			
+			case "1C" :
+			case "C1" : 
 				fila = 0;
 				columna = 2;
 				break;
-			}
-			case "C2" : {
+			
+			case "2C" :
+			case "C2" : 
 				fila = 1;
 				columna = 2;
 				break;
-			}
-			case "C3" : {
+			
+			case "3C" :
+			case "C3" : 
 				fila = 2;
 				columna = 2;
 				break;
-			}
-			default : {
+			
+			default : 
 				System.out.println();
 				System.out.println("Coordenadas erroneas. \nPor favor introduce correctamente las coordenadas (ej: A1, B3, C1...)");
 				correcto = false;
 				break;
-			}
+			
 		}
 		if (correcto) {
 			correcto = tablero.introducirFicha(getFicha(), fila, columna);
