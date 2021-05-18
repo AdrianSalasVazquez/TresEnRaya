@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+
+/**
+ * @author Adrián Salas Vázquez
+ */
 public class TresEnRayaMain {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -33,6 +37,7 @@ public class TresEnRayaMain {
 			
 			switch (modo) {
 			case "JUGAR":
+				//Código de jugar la partida
 				ArrayList<String> logs = new ArrayList<>();
 				repetir = false;
 				
@@ -41,6 +46,8 @@ public class TresEnRayaMain {
 				System.out.println("========================");
 				System.out.println();
 				
+				
+				//Nombres de jugadores:
 				System.out.println("Nombre del jugador 1:");
 				String nombre = scn.nextLine().toUpperCase();
 				Jugador jugador1 = new Jugador(nombre,tablero);
@@ -60,6 +67,8 @@ public class TresEnRayaMain {
 				//Log nombre del jugador1
 				logs.add("El jugador2 se llama " + nombre + " - " + new SimpleDateFormat("dd-MM-yyyy'_'HH-mm-ss").format(new Date()));
 				
+				
+				//Tirada de dados:
 				System.out.println();
 				System.out.println("Vamos a tirar los dados:");
 				boolean repetirDado = false;
@@ -125,10 +134,12 @@ public class TresEnRayaMain {
 					}
 				}while(repetirDado);
 				
+				
 				System.out.println();
 				tablero.mostrarTablero();
 				
 				
+				//Movimientos de los jugadores:
 				do {
 					
 					String coords = null;
@@ -166,7 +177,7 @@ public class TresEnRayaMain {
 				}while (tablero.comprobarPartidaAcabada() == "N");
 				
 				
-				
+				//Se muestran los resultados:
 				String fin = tablero.comprobarPartidaAcabada();
 				
 				switch (fin) {
@@ -190,7 +201,7 @@ public class TresEnRayaMain {
 						if (jugador1.getFicha().equals("O")) {
 							System.out.println("Ha ganado " + jugador1.getNombre());
 							
-							//Log movimiento 1
+							//Log ganador 1
 							logs.add(jugador1.getNombre() + " ha ganado la partida" + " - " + new SimpleDateFormat("dd-MM-yyyy'_'HH-mm-ss").format(new Date()));
 						}
 						else {
@@ -234,6 +245,7 @@ public class TresEnRayaMain {
 				break;
 				
 			case "CARGAR":
+				//Código de cargar la partida
 				repetir = false;
 				boolean repetirFichero = false;
 				File file2 = null;
@@ -244,6 +256,7 @@ public class TresEnRayaMain {
 				System.out.println();
 				System.out.println("Introduce el nombre del log que desea cargar:");
 				
+				//Comprobacion del nombre del log:
 				do {
 					
 					String filename = ("logs//" + scn.nextLine());
@@ -287,11 +300,14 @@ public class TresEnRayaMain {
 					e.getStackTrace();
 				}
 				
+				
+				//Datos del log:
 				System.out.println("Cargando contenido del log:");
 				System.out.println();
 				
 				Thread.sleep(5*500);
 				
+				// Nombre de los jugadores:
 				String nombreCargar = logsLeer.get(0).substring(21);
 				Jugador jugadorCargar1 = new Jugador(nombreCargar,tablero);
 				System.out.println("El jugador 1 es " + jugadorCargar1.getNombre());
@@ -304,6 +320,7 @@ public class TresEnRayaMain {
 				System.out.println();
 				
 				
+				// Tirada de dados:
 				System.out.println("Tiran los dados:");
 				System.out.println(jugadorCargar1.getNombre() + " --> " + logsLeer.get(2).substring(jugadorCargar1.getNombre().length()+8));
 				System.out.println(jugadorCargar2.getNombre() + " --> " + logsLeer.get(3).substring(jugadorCargar2.getNombre().length()+8));
@@ -322,6 +339,7 @@ public class TresEnRayaMain {
 				System.out.println();
 				
 				
+				// Movimiento de los jugadores:
 				for (String log : logsLeer) {
 					if (log.contains(" introduce las coordenadas ")) {
 						System.out.println(log);
@@ -340,6 +358,7 @@ public class TresEnRayaMain {
 					}
 				}
 				
+				// Se muestra el ganador:
 				System.out.println(logsLeer.get(logsLeer.size()-1));
 				
 				break;

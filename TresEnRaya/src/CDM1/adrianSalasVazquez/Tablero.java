@@ -14,6 +14,9 @@ public class Tablero {
 		crearTablero();
 	}
 	
+	/**
+	* Este método privado crea las cuadrículas vacias del tablero.
+	*/
 	private void crearTablero() {
 		for (int i = 0; i < filas; i++) {
 			for (int j = 0; j < columnas; j++){
@@ -22,6 +25,9 @@ public class Tablero {
 		}
 	}
 	
+	/**
+	* Este método imprime por pantalla el estado del tablero celda a celda.
+	*/
 	public void mostrarTablero() {
 		System.out.println("    A     B     C");
 		for (int i = 0; i < filas; i++) {
@@ -34,6 +40,12 @@ public class Tablero {
 		}
 	}
 	
+	/**
+	* Este método recoge la ficha introducida por parametro y la introduce en la posicion indicada por los parametros
+	* fila y columna.
+	* @param 
+	* @return boolean devuelve (true) si la insercion fue realizada, y (false) si no fue realizada.
+	*/
 	public boolean introducirFicha(String ficha, int fila, int columna) {
 		boolean puede = false;
 		
@@ -44,6 +56,12 @@ public class Tablero {
 		return puede;
 	}
 	
+	/**
+	* Este método recoge todas las posibilidades de acabar una partida (Comprueba si esta el tablero lleno y
+	* si hay tres en raya, ya sea en: filas, columnas o diagonales).
+	* @return devuelve un string en funcion del resultado: No se ha acabado la partida(N), Ha ganado la ficha X(X),
+	* Ha ganado la ficha O(O) y si la partida ha quedado en tablas(T).
+	*/
 	public String comprobarPartidaAcabada() {
 		int cont = 0;
 		String resul = "N";

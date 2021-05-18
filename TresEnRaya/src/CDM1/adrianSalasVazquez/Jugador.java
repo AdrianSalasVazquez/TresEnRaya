@@ -19,26 +19,50 @@ public class Jugador {
 		this.tablero = tablero;
 	}
 
+	/**
+	* Este método devuelve el nombre del jugador
+	* @return String nombre del jugador
+	*/
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	* Este método cambia el nombre del jugador por el introducido por parametro.
+	* @param
+	*/
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/**
+	* Este método devuelve la ficha del jugador
+	* @return String ficha del jugador
+	*/
 	public String getFicha() {
 		return ficha;
 	}
 
+	/**
+	* Este método cambia la ficha del jugador por la introducida por parametro.
+	* @param
+	*/
 	public void setFicha(String ficha) {
 		this.ficha = ficha;
 	}
 
+	/**
+	* Este método simplemente devuelve un número aleatorio entre 1 y 6.
+	* @return int número aleatorio del 1 al 6.
+	*/
 	public int tirarDado() {
 		return (dado.nextInt(6))+1;
 	}
 	
+	/**
+	* Este método filtra las coordenadas introducidas por parametro para que sean válidas para realizar el movimiento del jugador.
+	* @return boolean devuelve (true) si la operacion se ha realizado correctamente y (false) si no.
+	*/
 	public boolean hacerMovimiento(String coords) {
 		
 		int fila = 0, columna = 0;
