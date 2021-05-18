@@ -36,7 +36,7 @@ public class Jugador {
 	}
 
 	public int tirarDado() {
-		return (dado.nextInt(5))+1;
+		return (dado.nextInt(6))+1;
 	}
 	
 	public boolean hacerMovimiento(String coords) {
