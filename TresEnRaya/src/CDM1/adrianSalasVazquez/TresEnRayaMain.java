@@ -350,7 +350,7 @@ public class TresEnRayaMain {
 							System.out.println();
 						}
 						else {
-							jugadorCargar2.hacerMovimiento(log.substring(27 + jugadorCargar1.getNombre().length()));
+							jugadorCargar2.hacerMovimiento(log.substring(27 + jugadorCargar2.getNombre().length()));
 							System.out.println();
 							tablero.mostrarTablero();
 							System.out.println();
